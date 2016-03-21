@@ -15,10 +15,13 @@ GROUP BY 1;
 SELECT r.*,
 	LEFT(fr.first_time,7) cohort,
 	p.amount
-FROM rental r,
-	first_rental fr, 
-	cohort_size cs,
-	payment p
-WHERE r.customer_id=fr.customer_id
-	AND LEFT(fr.first_time,7)=cs.month
-	AND r.rental_id=p.rental_id;
+FROM rental r 
+
+	JOIN first_rental fr
+	ON r.customer_id=fr.customer_id
+	
+	JOIN cohort_size cs
+	ON LEFT(fr.first_time,7)=cs.month
+	
+	JOIN payment p
+	ON r.rental_id=p.rental_id;
