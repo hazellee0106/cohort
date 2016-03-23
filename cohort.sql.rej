@@ -1,0 +1,9 @@
+diff a/cohort.sql b/cohort.sql	(rejected hunks)
+@@ -7,5 +7,6 @@
+ 
+ DROP TEMPORARY TABLE IF EXISTS cohort_size;
+ CREATE TEMPORARY TABLE cohort_size
++SELECT LEFT(first_time,7) month,
+ 		COUNT(*) Num
+ FROM first_rental
+\ No newline at end of file
